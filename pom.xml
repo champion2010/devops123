@@ -26,7 +26,6 @@
       <plugin>
               <groupId>org.apache.maven.plugins</groupId>
 	      <artifactId>maven-war-plugin</artifactId>
-	      <version>3.2.3</version>
         <configuration>
 		<webXml>/home/ubuntu/git_job/devops123/webapp/src/main/webapp/WEB-INF/web.xml</webXml>
             </configuration>
