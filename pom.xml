@@ -16,7 +16,7 @@
         <description>DevOps II with mobanntechnologies</description>
 
         <properties>
-                <java.version>1.8</java.version>
+                <java.version>21</java.version>
         </properties>
 
 
@@ -25,7 +25,8 @@
 
       <plugin>
               <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
+	      <artifactId>maven-war-plugin</artifactId>
+	      <version>3.2.3</version>
         <configuration>
 		<webXml>/home/ubuntu/git_job/devops123/webapp/src/main/webapp/WEB-INF/web.xml</webXml>
             </configuration>
@@ -33,9 +34,10 @@
 
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+	<configuration>
+	<version>3.8.1</version>
+          <source>21</source>
+          <target>21</target>
         </configuration>
       </plugin>
 
@@ -115,7 +117,29 @@
                 <failOnMissingWebXml>false</failOnMissingWebXml>
                ...
              </configuration>
-        </plugin>
+         </plugin>
+
+	 <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <version>3.3.0</version>
+            <executions>
+                <execution>
+                    <id>enforce-java</id>
+                    <goals>
+                        <goal>enforce</goal>
+                    </goals>
+                    <configuration>
+                        <rules>
+    				<requireJavaVersion>
+                                <version>21</version>
+                            </requireJavaVersion>
+                        </rules>
+                        <failFast>true</failFast>
+                    </configuration>
+                </execution>
+            </executions>
+         </plugin>
 
       </plugins>
     </pluginManagement>
